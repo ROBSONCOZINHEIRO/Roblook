@@ -1,0 +1,85 @@
+/* roblook.css */
+
+/* Estilo geral da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Container do chat */
+#chat-container {
+  width: 400px;
+  max-width: 90%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Área de mensagens */
+#chat {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mensagens */
+#chat div {
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 80%;
+}
+
+/* Mensagens do usuário */
+#chat div:nth-child(odd) {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Mensagens do Roblook */
+#chat div:nth-child(even) {
+  align-self: flex-start;
+  background-color: #e5e5ea;
+  color: #000000;
+}
+
+/* Área de input */
+#input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+/* Input de texto */
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Botão enviar */
+#send-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#send-btn:hover {
+  background-color: #218838;
+}
