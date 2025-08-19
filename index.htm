@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblook - Inteligência Interativa</title>
+    <link rel="stylesheet" href="roblook.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat">
+            <div>Olá! Eu sou o Roblook. Como posso ajudar você hoje?</div>
+        </div>
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem aqui...">
+            <button id="send-btn">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        const chat = document.getElementById('chat');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Função para adicionar mensagem ao chat
+        function addMessage(message, sender='user') {
+            const msgDiv = document.createElement('div');
+            msgDiv.textContent = message;
+            chat.appendChild(msgDiv);
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Função para gerar respostas do Roblook
+        function botResponse(message) {
+            let response = "Desculpe, ainda estou aprendendo. Mas vou tentar ajudar!";
+            // Aqui você pode criar lógica ou integrar IA real futuramente
+            if(message.toLowerCase().includes('oi') || message.toLowerCase().includes('olá')) {
+                response = "Olá! Que bom ver você! 😊";
+            }
+            if(message.toLowerCase().includes('como você está')) {
+                response = "Estou sempre pronto para ajudar! E você?";
+            }
+            return response;
+        }
+
+        // Evento do botão enviar
+        sendBtn.addEventListener('click', () => {
+            const message = userInput.value.trim();
+            if(message === '') return;
+            addMessage(message, 'user');
+            const reply = botResponse(message);
+            addMessage(reply, 'bot');
+            userInput.value = '';
+            userInput.focus();
+        });
+
+        // Evento de tecla Enter
+        userInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
